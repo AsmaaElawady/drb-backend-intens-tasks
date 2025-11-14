@@ -1,18 +1,54 @@
-# DRB Backend Internship Tasks
+# NestJS JWT Authentication Module
 
-Welcome to the DRB Backend Internship program! This repository contains weekly tasks designed to enhance your backend development skills.
+This project is a full JWT-based authentication system built with NestJS, TypeScript, and MongoDB.
 
-## How to Get Started
+## Features
 
-1. **Fork this repository** to your GitHub account
-2. **Clone your forked repository** to your local machine
-3. **Create a branch** named `week-X` (where X is the week number)
-4. **Complete the task** on your branch
-5. **Push your changes** to your forked repository
-6. **Create a Pull Request** back to the main repository when ready for review
+- User registration with validation
+- Login with JWT access & refresh tokens
+- Get current user profile
+- Update profile (name, phone)
+- Change password
+- Refresh access token using refresh token
+- Logout
+- Password hashing with bcrypt
+- JWT token verification with Passport.js
+- Swagger API documentation
 
-## Questions?
+## Tech Stack
 
-If you have any questions or need clarification, please reach out to me on WhatsApp.
+- Framework: NestJS
+- Language: TypeScript
+- Database: MongoDB
+- Authentication: JWT
 
-Good luck! 🚀
+## Getting Started
+
+### Prerequisites
+- Node.js v20+
+- MongoDB
+
+### Installation
+```bash
+git clone https://github.com/AsmaaElawady/drb-backend-intens-tasks.git
+npm install
+```
+
+## Running the Project
+```bash
+npm run start:dev
+```
+
+- Swagger docs: http://localhost:3000/api
+
+## Authentication Endpoints
+
+| Endpoint               | Method | Description                   | Auth Required |
+|------------------------|--------|-------------------------------|---------------|
+| `/auth/register`       | POST   | Register a new user           |  No         |
+| `/auth/login`          | POST   | Login and receive tokens      |  No         |
+| `/auth/profile`        | GET    | Get logged-in user profile    |  Yes        |
+| `/auth/profile`        | PATCH  | Update user profile           |  Yes        |
+| `/auth/change-password`| PATCH  | Change user password          |  Yes        |
+| `/auth/refresh`        | POST   | Refresh access token          |  No         |
+| `/auth/logout`         | POST   | Logout user (invalidate RT)   |  Yes        |

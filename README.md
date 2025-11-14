@@ -33,6 +33,23 @@ This project is a full JWT-based authentication system built with NestJS, TypeSc
 git clone https://github.com/AsmaaElawady/drb-backend-intens-tasks.git
 npm install
 ```
+## Environment Variables
+
+Create a `.env` file in the root of the project with the following variables:
+
+```env
+PORT=3000
+
+MONGO_URI=mongodb://localhost:27017/nest-auth
+
+JWT_ACCESS_TOKEN_SECRET=verylongaccesssecret_here
+JWT_REFRESH_TOKEN_SECRET=verylongrefreshsecret_here
+
+JWT_ACCESS_TOKEN_EXPIRES_IN=15m
+JWT_REFRESH_TOKEN_EXPIRES_IN=7d
+
+SALT_ROUNDS=12
+```
 
 ## Running the Project
 ```bash

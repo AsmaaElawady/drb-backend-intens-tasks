@@ -55,7 +55,7 @@ export class UsersService {
     async findOne(id: string): Promise<User | null> {
     return this.userModel
       .findById(id)
-      .select('-password -refreshToken') // Don't return sensitive data
+      .select('-password -refreshToken')
       .exec();
   }
 }

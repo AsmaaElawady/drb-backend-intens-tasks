@@ -1,18 +1,93 @@
-# DRB Backend Internship Tasks
+# Vehicle Management API
 
-Welcome to the DRB Backend Internship program! This repository contains weekly tasks designed to enhance your backend development skills.
+A modular NestJS application that includes full authentication (JWT + Refresh Token), authorization with roles, user management, vehicle CRUD operations, global validation, and structured project architecture.
 
-## How to Get Started
+##  Features
 
-1. **Fork this repository** to your GitHub account
-2. **Clone your forked repository** to your local machine
-3. **Create a branch** named `week-X` (where X is the week number)
-4. **Complete the task** on your branch
-5. **Push your changes** to your forked repository
-6. **Create a Pull Request** back to the main repository when ready for review
+### Authentication & Authorization
 
-## Questions?
+- Register & Login using email and password
+- Access token (JWT) + Refresh token flow
+- Hashed refresh tokens stored securely in the database
+- Role-based authorization (`Admin`, `User`, `Driver`)
+- Guards:
+  - `JwtAuthGuard`
+  - `RolesGuard`
 
-If you have any questions or need clarification, please reach out to me on WhatsApp.
+### User Module
 
-Good luck! 🚀
+- Create user
+- List all users (admin only)
+- Roles: `user`, `admin`, `driver`
+- Update profile
+- Secure password hashing with bcrypt
+
+###  Vehicles Module
+
+- CRUD operations (Create, Read, Update, Delete)
+- Ownership relations between users and vehicles
+- Permissions:
+  - **Admin**: full access
+  - **User**: can only access their own vehicles
+
+### Global Features
+
+- DTO validation using `class-validator`
+- Global exception filters
+- Folder structure following best practices
+- Environment-based configuration
+
+##  Installation
+
+###  Clone the repository
+
+```bash
+git clone https://github.com/AsmaaElawady/drb-backend-intens-tasks.git
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+
+## Running the Project
+
+### Development
+
+```bash
+npm run start:dev
+```
+
+
+##  Testing Endpoints (Postman)
+
+### Auth
+
+- `POST /auth/register`
+- `POST /auth/login`
+- `POST /auth/refresh`
+- `POST /auth/logout`
+
+### Users
+
+- `GET /users` (admin only)
+- `GET /users/me`
+- `PATCH /users/:id`
+
+### Vehicles
+
+- `POST /vehicles`
+- `GET /vehicles`
+- `GET /vehicles/:id`
+- `PATCH /vehicles/:id`
+- `DELETE /vehicles/:id`
+
+##  Roles System
+
+| Role   | Permissions                                        |
+|--------|---------------------------------------------------|
+| Admin  | Full access to all users + all vehicles          |
+| User   | Only own profile + own vehicles                   |
+| Driver | Restricted access (depends on implementation)     |
